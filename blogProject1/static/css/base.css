@@ -1,0 +1,32 @@
+h1{
+  text-align: center;
+}
+.container{
+  float: left;
+  width: 60%;
+  background: red;
+  padding-left: 20px;
+}
+.sidebar{
+  float: right;
+  width: 35%;
+  background: green;
+  padding: 10px;
+}
+body{
+  background: red;
+  color: white;
+}
+#date{
+  color: yellow;
+}
+a{
+  color: blue;
+}
+span{
+  font-size: 40px;
+  color: orange;
+}
+#most{
+  color: pink;
+}

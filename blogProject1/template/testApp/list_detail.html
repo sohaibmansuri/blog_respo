@@ -1,0 +1,29 @@
+{%extends 'testApp/base.html' %}
+{%block title_block %}
+{{post.title}}
+{%endblock%}
+{% block content_block %}
+<h1>{{post.title}}</h1>
+<p id='date'>Publish on {{post.created}} by {{post.author}}</p>
+{{post.body}}
+{% with comments.count as comment_count %}
+<h2>{{comment_count}} Comment{{comment_count|pluralize}}</h2>
+{%endwith%}
+{%if comments%}
+{%for comment in comments%}
+<p id="date">Comment {{forloop.count}} by {{comment.name}} on {{comment.created}}</p>
+{{comment.body|linebreaks}}
+{%endfor%}
+{%else%}
+<p>There is not comment yet....!!!!!!!!</p>
+{%endif%}
+{%if csubmit%}
+<h2>your Comment added Successfully......</h2>
+{%else%}
+<form method="post">
+  {{form.as_p}}
+  {%csrf_token%}
+  <input type="submit" name="" value="Submit Comment">
+</form>
+{%endif%}
+{% endblock %}
